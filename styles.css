@@ -2,11 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
   
 }
 
-baby{
-  overflow-x: hidden;
+body,p{
+  font-family:'Urbanist', sans-serif !important;
 }
 
 
@@ -30,7 +31,7 @@ h1,h2,h3{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #1b1c2c;
+  background-color: #0a5048;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,11 +69,13 @@ a{
 }
 
 .nav-btn-div button{
-  color: #0c5f2f;
+  color: #0a5048;
+  background: linear-gradient(to bottom, #DCF4C3, #72C19E);
 }
 
 .nav-btn-div-mov button{
-  color: #0c5f2f;
+  color: #0a5048;
+  background: linear-gradient(to bottom, #DCF4C3, #72C19E);
 }
 
 /* >>>>>>>>>>>><<<<<<<<<<<<<< */
@@ -82,8 +85,10 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 150px;
+  gap: 180px;
 }
+
+
 
 .header-heading{
   width: 100%;
@@ -97,9 +102,7 @@ a{
   align-items: center;
 }
 
-.header-anim{
-  width: 100%;
-}
+
 
 ul li{
   color: white;
@@ -124,14 +127,14 @@ p{
 
 .green-bg-gradient {
   width: 1000px;
-  height: 1000px;
-  right: -170px;
-  position: absolute;
-  background: radial-gradient(48.69% 39.15% at 50.02% 50.04%, #53FFC1 0.01%, rgba(25, 54, 99, 0.3) 53.96%, rgba(0, 0, 0, 0) 100%);
-  transform: rotate(0deg);
-  opacity: 0.7;
-  z-index: -1;
-  top: -80px;
+    height: 1000px;
+    right: -256px;
+    position: absolute;
+    background: radial-gradient(48.69% 39.15% at 50.02% 50.04%, #53FFC1 0.01%, rgba(25, 54, 99, 0.3) 53.96%, rgba(0, 0, 0, 0) 100%);
+    transform: rotate(0deg);
+    opacity: 0.7;
+    z-index: -1;
+    top: -169px;
 }
 
 
@@ -212,10 +215,14 @@ body {
 }
 
 .nav-item {
-    color: #ffffff;
+  background: linear-gradient(to bottom, #DCF4C3, #72C19E);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+        background-clip: text;
     text-decoration: none;
     margin-right: 30px;
-    font-size: 22px;
+    font-size: 28px;
+    font-weight: 600;
 }
 .logo-link {
 width:18%;
@@ -607,7 +614,7 @@ width:18%;
 
 
   .grid-box{
-    background-color: #13141E;
+    background: linear-gradient(82.3deg, #0a5048, transparent, #0a5048);
     border-radius: 30px;
     padding: 40px;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Smooth transition for hover effect */

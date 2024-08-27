@@ -5,6 +5,24 @@
     overflow-x: hidden;
   }
 
+  .hero-left h2{
+    text-align: center;
+  }
+
+  .hero-heading h5{
+    text-align: center;
+  }
+
+  .green-bg-gradient {
+    right: -290px !important;
+    top: 110px !important;
+}
+
+  .flex h1{
+    text-align: center;
+  }
+
+
 
 	.nav-wrap, .buttons-wrap {
     display: none;
@@ -29,10 +47,16 @@
 
 .flex{
   flex-direction: column !important;
+  gap: 0px !important;
 }
 
-.mobile-menu-toggle {
-    order: 1;
+.header-anim{
+  display: contents;
+}
+
+.head-anim{
+  width: 65% !important;
+    margin: 0 auto;
 }
 
 .mobile-menu.active {
@@ -123,6 +147,16 @@
 .stats{
   flex-direction: column;
 }
+
+.column {
+  text-align: center;
+}
+
+.playstore-app {
+  align-items: center;
+}
+
+
 }
 
 @media screen and (max-width: 480px) {
@@ -431,7 +465,13 @@ width: 70%;
     width: 70%;
   }
 
-  
-  }
+}
+
+
+@media(max-width: 1700px) {
+    body{
+      overflow: hidden !important;
+    }
+}
 
 
