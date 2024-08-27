@@ -10,6 +10,10 @@
     display: none;
 }
 
+.nav-btn-div{
+  display: none;
+}
+
 .mobile-menu-toggle {
     display: flex;
 }
@@ -125,6 +129,8 @@
   h1{
     font-size: 26px;
   }
+
+  
 
   .carousel{
     padding: 0px;

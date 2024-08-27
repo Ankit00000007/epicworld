@@ -57,8 +57,23 @@ h1,h2,h3{
   gap: 32px;
 }
 
+a{
+  text-decoration: none;
+}
 
+.nav-btn-div-mov{
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.nav-btn-div button{
+  color: #0c5f2f;
+}
+
+.nav-btn-div-mov button{
+  color: #0c5f2f;
+}
 
 /* >>>>>>>>>>>><<<<<<<<<<<<<< */
 
@@ -73,6 +88,13 @@ h1,h2,h3{
 .header-heading{
   width: 100%;
   display: block;
+}
+
+.nav-btn-div{
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-anim{
