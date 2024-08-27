@@ -1,6 +1,11 @@
 /* Base styles (your existing CSS remains here) */
 @media screen and (max-width: 768px) {
 
+  body{
+    overflow-x: hidden;
+  }
+
+
 	.nav-wrap, .buttons-wrap {
     display: none;
 }
