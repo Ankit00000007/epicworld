@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epic World Login</title>
+    <link rel="stylesheet" href="../login/responsive.css"/>
+    <link rel="stylesheet" href="./login.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>OR</span>
+                <input type="text" placeholder="Name"/>
+                <input type="email" placeholder="Email"/>
+
+                <input type="mobile" placeholder="Mobile no."/>
+                <div class="input-div">
+                  <input type="password" placeholder="Password" class="input-field"/>
+                <i class="fa-solid fa-eye fa password-toggle"></i>
+                </div>
+                <div class="input-div">
+                  <input type="password" placeholder="Confirm Password" class="input-field" />
+                  <i class="fa-solid fa-eye fa password-toggle"></i>
+                </div>
+                
+                <button class="sign-up">Register</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Log in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>OR</span>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button class="sign-in">Log In</button>
+                
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                  <a href="../index.html"><img src="../images/logo.png" alt="Epic World Logo" class="logo" /></a>
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Log In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                  <a href="../index.html"><img src="../images/logo.png" alt="Epic World Logo" class="logo" /></a>
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+        const mobileToggles = document.querySelectorAll('.mobile-toggle');
+    
+        function toggleContainer() {
+            container.classList.toggle('right-panel-active');
+        }
+    
+        signUpButton.addEventListener('click', toggleContainer);
+        signInButton.addEventListener('click', toggleContainer);
+    
+        mobileToggles.forEach(toggle => {
+            toggle.addEventListener('click', toggleContainer);
+        });
+    
+        // Touch events for vertical sliding on mobile
+        let startY;
+        let isSwiping = false;
+    
+        container.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+            isSwiping = true;
+        });
+    
+        container.addEventListener('touchmove', function(e) {
+            if (!isSwiping) return;
+            const currentY = e.touches[0].clientY;
+            const diff = startY - currentY;
+    
+            if (Math.abs(diff) > 50) { // Threshold for swipe
+                if (diff > 0 && !container.classList.contains('right-panel-active')) {
+                    container.classList.add('right-panel-active');
+                } else if (diff < 0 && container.classList.contains('right-panel-active')) {
+                    container.classList.remove('right-panel-active');
+                }
+                isSwiping = false;
+            }
+        });
+    
+        container.addEventListener('touchend', function() {
+            isSwiping = false;
+        });
+    });
+    </script>
+<!-- >>>>>>>>><<<<<<< -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const toggles = document.querySelectorAll('.password-toggle');
+          
+          toggles.forEach(toggle => {
+              toggle.addEventListener('click', function() {
+                  const input = this.previousElementSibling;
+                  if (input.type === 'password') {
+                      input.type = 'text';
+                      this.classList.remove('fa-eye');
+                      this.classList.add('fa-eye-slash');
+                  } else {
+                      input.type = 'password';
+                      this.classList.remove('fa-eye-slash');
+                      this.classList.add('fa-eye');
+                  }
+              });
+          });
+      });
+  </script>
+</body>
+</html>
