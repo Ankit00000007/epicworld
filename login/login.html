@@ -67,6 +67,10 @@
                 </div>
             </div>
         </div>
+        <div class="mobile-toggle-container">
+          <button class="mobile-toggle" id="mobileSignIn">Sign In</button>
+          <button class="mobile-toggle" id="mobileSignUp">Sign Up</button>
+      </div>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -79,11 +83,16 @@
             container.classList.toggle('right-panel-active');
         }
     
-        signUpButton.addEventListener('click', toggleContainer);
-        signInButton.addEventListener('click', toggleContainer);
+        function handleTransition(event) {
+            event.preventDefault();
+            toggleContainer();
+        }
+    
+        signUpButton.addEventListener('click', handleTransition);
+        signInButton.addEventListener('click', handleTransition);
     
         mobileToggles.forEach(toggle => {
-            toggle.addEventListener('click', toggleContainer);
+            toggle.addEventListener('click', handleTransition);
         });
     
         // Touch events for vertical sliding on mobile
@@ -101,10 +110,16 @@
             const diff = startY - currentY;
     
             if (Math.abs(diff) > 50) { // Threshold for swipe
-                if (diff > 0 && !container.classList.contains('right-panel-active')) {
-                    container.classList.add('right-panel-active');
-                } else if (diff < 0 && container.classList.contains('right-panel-active')) {
-                    container.classList.remove('right-panel-active');
+                if (diff > 0) {
+                    // Swipe up
+                    if (!container.classList.contains('right-panel-active')) {
+                        toggleContainer();
+                    }
+                } else {
+                    // Swipe down
+                    if (container.classList.contains('right-panel-active')) {
+                        toggleContainer();
+                    }
                 }
                 isSwiping = false;
             }
@@ -112,6 +127,13 @@
     
         container.addEventListener('touchend', function() {
             isSwiping = false;
+        });
+    
+        // Handle resize events
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                container.classList.remove('right-panel-active');
+            }
         });
     });
     </script>
