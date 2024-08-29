@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Epic World Login</title>
-    <link rel="stylesheet" href="../login/responsive.css"/>
+    <!-- <link rel="stylesheet" href="../login/responsive.css"/> -->
     <link rel="stylesheet" href="./login.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -12,6 +12,7 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="#">
+                <a href="../../epic-world/"><img src="../images/logo.png" alt="Epic World Logo" class="logo" /></a>
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -37,6 +38,7 @@
         </div>
         <div class="form-container sign-in-container">
             <form action="#">
+                <a href="../index.html"><img src="../images/logo.png" alt="Epic World Logo" class="logo" /></a>
                 <h1>Log in</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -45,8 +47,11 @@
                 </div>
                 <span>OR</span>
                 <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
+                <div class="input-div">
+                    <input type="password" placeholder="Password" class="input-field" />
+                    <i class="fa-solid fa-eye fa password-toggle"></i>
+                  </div>
+                <a href="#">Forgot password?</a>
                 <button class="sign-in">Log In</button>
                 
             </form>
@@ -68,74 +73,49 @@
             </div>
         </div>
         <div class="mobile-toggle-container">
-          <button class="mobile-toggle" id="mobileSignIn">Sign In</button>
-          <button class="mobile-toggle" id="mobileSignUp">Sign Up</button>
-      </div>
+            <button class="mobile-toggle" id="mobileSignIn">Log In</button>
+            <button class="mobile-toggle" id="mobileSignUp">Register</button>
+        </div>
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
-        const mobileToggles = document.querySelectorAll('.mobile-toggle');
-    
-        function toggleContainer() {
-            container.classList.toggle('right-panel-active');
-        }
-    
-        function handleTransition(event) {
-            event.preventDefault();
-            toggleContainer();
-        }
-    
-        signUpButton.addEventListener('click', handleTransition);
-        signInButton.addEventListener('click', handleTransition);
-    
-        mobileToggles.forEach(toggle => {
-            toggle.addEventListener('click', handleTransition);
-        });
-    
-        // Touch events for vertical sliding on mobile
-        let startY;
-        let isSwiping = false;
-    
-        container.addEventListener('touchstart', function(e) {
-            startY = e.touches[0].clientY;
-            isSwiping = true;
-        });
-    
-        container.addEventListener('touchmove', function(e) {
-            if (!isSwiping) return;
-            const currentY = e.touches[0].clientY;
-            const diff = startY - currentY;
-    
-            if (Math.abs(diff) > 50) { // Threshold for swipe
-                if (diff > 0) {
-                    // Swipe up
-                    if (!container.classList.contains('right-panel-active')) {
-                        toggleContainer();
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const container = document.getElementById('container');
+            const mobileSignIn = document.getElementById('mobileSignIn');
+            const mobileSignUp = document.getElementById('mobileSignUp');
+        
+            function toggleContainer() {
+                container.classList.toggle('right-panel-active');
+                updateMobileToggles();
+            }
+        
+            function updateMobileToggles() {
+                if (container.classList.contains('right-panel-active')) {
+                    mobileSignUp.classList.add('active');
+                    mobileSignIn.classList.remove('active');
                 } else {
-                    // Swipe down
-                    if (container.classList.contains('right-panel-active')) {
-                        toggleContainer();
-                    }
+                    mobileSignIn.classList.add('active');
+                    mobileSignUp.classList.remove('active');
                 }
-                isSwiping = false;
             }
-        });
-    
-        container.addEventListener('touchend', function() {
-            isSwiping = false;
-        });
-    
-        // Handle resize events
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
+        
+            signUpButton.addEventListener('click', toggleContainer);
+            signInButton.addEventListener('click', toggleContainer);
+        
+            mobileSignIn.addEventListener('click', function() {
                 container.classList.remove('right-panel-active');
-            }
+                updateMobileToggles();
+            });
+        
+            mobileSignUp.addEventListener('click', function() {
+                container.classList.add('right-panel-active');
+                updateMobileToggles();
+            });
+        
+            // Initial setup
+            updateMobileToggles();
         });
-    });
     </script>
 <!-- >>>>>>>>><<<<<<< -->
     <script>
