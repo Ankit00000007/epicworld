@@ -88,6 +88,7 @@ body {
     .sign-up,.sign-in{
         background: linear-gradient(to right, #0a5048, #00FFE1, #0a5048, #00FFE1);
         font-family: 'Urbanist';
+        width: 20vw;
     }
 
     .sign-in:hover{
@@ -99,8 +100,11 @@ body {
     }
 
     form {
-        background: #e7fffc;
+        background: url(../images/pexels-didsss-3753031.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
     background-blend-mode: overlay;
+    background-color: #000000c7;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -114,6 +118,7 @@ body {
     input {
         background-color: #eee;
         border: none;
+        border-radius: 10px;
         padding: 12px 15px;
         margin: 8px auto;
         width: 20vw;
@@ -252,6 +257,8 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
         background-clip: text;
+        font-size: 37px;
+    font-weight: 900;
     }
 
     .overlay-left {
@@ -450,6 +457,7 @@ body {
         form {
             padding: 0 0 !important;
             justify-content: flex-start !important;
+            gap: 10px !important; 
         }
     
         .form-container, .overlay-container {
@@ -459,7 +467,6 @@ body {
         }
     
        
-    
         .overlay-container {
             top: 0;
         }
@@ -501,9 +508,20 @@ body {
             font-size: 16px;
             width: 70vw !important;
         }
+
+        .fa {
+            top: 31px;
+        }
     }
-    
-    
+    /* >>>>>>>>>><<<<<<<<<< */
+    @media screen and (min-width: 769px) and (max-width: 868px) {
+        input{
+            width: 30vw !important;
+        }
+    }
+
+
+
     /* >>>>>>><<<<<<< */
     
     @media screen and (max-width: 768px) {
