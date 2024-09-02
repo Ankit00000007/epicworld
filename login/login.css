@@ -87,7 +87,7 @@ body {
     .sign-up,.sign-in{
         background: linear-gradient(to right, #0a5048, #00FFE1, #0a5048, #00FFE1);
         font-family: 'Urbanist';
-        width: 20vw;
+        width: 16vw;
     }
 
     .sign-in:hover{
@@ -120,7 +120,7 @@ body {
         border-radius: 10px;
         padding: 12px 15px;
         margin: 8px auto;
-        width: 20vw;
+        width: 19vw;
     }
 
     .input-div{
@@ -325,8 +325,10 @@ body {
             overflow: hidden;
         }
     
-        .sign-in{
+        .sign-in,.sign-up{
             width: 50vw;
+            
+        margin-top: 14px;
         }
 
         .form-container, .overlay-container {
@@ -452,9 +454,12 @@ body {
 
         form .logo{
             display: block !important;
-            width: 200px;
-            margin-bottom: 70px;
+        width: 160px;
+        margin-bottom: 10px;
         }
+         form h1{
+            font-size: 30px;
+         }
 
 
         form {
@@ -508,7 +513,7 @@ body {
         }
     
         input, button {
-            font-size: 16px;
+            font-size: 12px;
             width: 70vw !important;
         }
 
@@ -516,12 +521,24 @@ body {
             top: 31px;
         }
     }
+
     /* >>>>>>>>>><<<<<<<<<< */
     @media screen and (min-width: 769px) and (max-width: 868px) {
         input{
             width: 30vw !important;
         }
+
+        .sign-in,.sign-up{
+                width: 28vw !important;
     }
+}
+
+
+@media screen and (min-width: 869px) and (max-width: 1023px) {
+    .sign-in,.sign-up{
+        width: 20vw !important;
+}
+}
 
 
 
@@ -569,6 +586,10 @@ body {
     
         .overlay-container {
             display: none;
+        }
+
+        input, button {
+            width: 50vw !important;
         }
     
         .mobile-toggle-container {
