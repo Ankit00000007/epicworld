@@ -64,6 +64,21 @@ a{
   text-decoration: none;
   font-family: 'Urbanist', sans-serif;
 }
+.container .nav-btn-div1 a{
+  display: none !important;
+}
+
+.container .nav-btn-div1{
+  display: flex;
+  gap: 10px;
+}
+
+.container .nav-btn-div1 a button{
+  width: 21vw;
+  font-size: smaller; 
+  color: #0a5048;
+  background: linear-gradient(to bottom, #DCF4C3, #72C19E);
+}
 
 .nav-btn-div-mov{
   display: flex;
@@ -165,7 +180,7 @@ body {
           border: none;
           padding: 10px 30px;
           border-radius: 25px;
-          font-size: 19px;
+          font-size: 22px;
           font-weight: bolder;
           cursor: pointer;
           display: flex;
@@ -1032,6 +1047,11 @@ width:18%;
   }
   
   @media screen and (max-width: 768px) {
+
+    .container .nav-btn-div1 a{
+      display: block !important;
+    }
+
 	.testimonial-item {
 	  padding: 15px;
 	}
@@ -1051,6 +1071,9 @@ width:18%;
   }
   
   @media screen and (max-width: 576px) {
+
+    
+
 	.testimonial-item {
 	  padding: 10px;
 	}
@@ -1062,6 +1085,8 @@ width:18%;
 	.testimonial .owl-carousel.testimonial-carousel .owl-nav {
 	  font-size: 20px;
 	}
+
+
   }
    
 /* >>>>>>>>>>><<<<<<<<<<<< */
